@@ -8,12 +8,12 @@
     name: mongodb-org-shell
     state: present 
 
-- name: get the products count
+- name: "get the products count"
   ansible.builtin.shell:  mongo --host mongodb.daws91.online --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
   register: products_count
   when: component = "catalogue"
 
-- name: get the users count
+- name: "get the users count"
   ansible.builtin.shell:  mongo --host mongodb.daws91.online --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
   register: users_count
   when: component == "user"
@@ -23,12 +23,12 @@
 #   ansible.builtin.debug:
 #     msg: "product count: {{product_count}}"
 
-- name: load products data
+- name: "load products data"
   ansible.builtin.shell: "mongo --host mongodb.daws91.online < /app/schema/catalogue.js"
-  when: product_counts.stdout == "0" and component == "catalogue"  # keep double quotes
+  when: products_counts.stdout == "0" and component == "catalogue"  # keep double quotes
   ignore_errors: true
 
-- name: load users data
+- name: "load users data"
   ansible.builtin.shell: "mongo --host mongodb.daws91.online < /app/schema/user.js"
   when: users_count.stdout == "0" and component == "user"  # keep double quotes  
   ignore_errors: true
