@@ -24,11 +24,11 @@
 #     msg: "product count: {{product_count}}"
 
 - name: "load products data"
-  ansible.builtin.shell: "mongo --host mongodb.daws91.online < /app/schema/catalogue.js"
+  ansible.builtin.shell: "mongo --host mongodb.daws91.online < /app/schema/{{component}}.js"
   when: products_counts.stdout == "0" and component == "catalogue"  # keep double quotes
   ignore_errors: true
 
 - name: "load users data"
-  ansible.builtin.shell: "mongo --host mongodb.daws91.online < /app/schema/user.js"
+  ansible.builtin.shell: "mongo --host mongodb.daws91.online < /app/schema/{{user}}.js"
   when: users_count.stdout == "0" and component == "user"  # keep double quotes  
   ignore_errors: true
