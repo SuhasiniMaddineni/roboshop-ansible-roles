@@ -14,7 +14,7 @@
   when: component = "catalodue"
 
 - name: "get the {{component}} count"
-  ansible.builtin.shell:  mongo --host mongodb.daws91.online --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
+  ansible.builtin.shell:  "mongo --host mongodb.daws91.online --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'""
   register: users_count
   when: component == "user"
 
@@ -24,7 +24,7 @@
 #     msg: "product count: {{product_count}}"
 
 - name: load catalogue data
-  ansible.builtin.shell: mongo --host mongodb.daws91.online < /app/schema/catalogue.js
+  ansible.builtin.shell: "mongo --host mongodb.daws91.online < /app/schema/catalogue.js"
   when: product_counts.stdout == "0" and component == "catalogue"  # keep double quotes
   ignore_errors: true
 
