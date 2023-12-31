@@ -11,7 +11,7 @@
 - name: "get the {{component}} count"
   ansible.builtin.shell:  mongo --host mongodb.daws91.online --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
   register: products_count
-  when: component = "catalodue"
+  when: component = "catalogue"
 
 - name: "get the {{component}} count"
   ansible.builtin.shell:  mongo --host mongodb.daws91.online --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
