@@ -26,9 +26,9 @@
 - name: load catalogue data
   ansible.builtin.shell: "mongo --host mongodb.daws91.online < /app/schema/catalogue.js"
   when: product_counts.stdout == "0" and component == "catalogue"  # keep double quotes
-  ignore_errors: true
+  #ignore_errors: true
 
 - name: load catalogue data
   ansible.builtin.shell: "mongo --host mongodb.daws91.online < /app/schema/user.js"
   when: users_count.stdout == "0" and component == "user"  # keep double quotes  
-  ignore_errors: true
+  #ignore_errors: true
