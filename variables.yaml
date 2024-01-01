@@ -1,3 +1,5 @@
 MONGODB_HOST: mongodb.daws91.online
 REDIS_HOST: redis.daws91.online
 CATALOGUE_HOST: catalogue.daws91.online
+USER_HOST: user.daws91.online
+CART_HOST: cart.daws91.online
