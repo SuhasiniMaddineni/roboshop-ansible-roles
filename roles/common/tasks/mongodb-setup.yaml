@@ -25,9 +25,9 @@
 - name: "load products data"
   ansible.builtin.shell: "mongo --host {{MONGODB_HOST}} < /app/schema/{{component}}.js"
   when: products_count.stdout == "0" and component == "catalogue"  # keep double quotes
-  #ignore_errors: true
+  ignore_errors: true
 
 - name: "load users data"
   ansible.builtin.shell: "mongo --host {{MONGODB_HOST}} < /app/schema/{{component}}.js"
   when: users_count.stdout == "0" and component == "user"  # keep double quotes  
-  #ignore_errors: true
+  ignore_errors: true
