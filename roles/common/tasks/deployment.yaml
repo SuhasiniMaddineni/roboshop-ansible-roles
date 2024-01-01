@@ -12,34 +12,34 @@
   tags:
   - deployment     
 
-- name: "downloading {{component}} application"
-  ansible.builtin.get_url:
-    url: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
-    dest: /tmp
-  tags:
-  - deployment    
+# - name: "downloading {{component}} application"
+#   ansible.builtin.get_url:
+#     url: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
+#     dest: /tmp
+#   tags:
+#   - deployment    
 
-- name: "unzip the {{component}} application"
-  ansible.builtin.unarchive:
-    src: "/tmp/{{component}}.zip"
-    dest: /app
-    remote_src: yes 
-  tags:
-  - deployment       
+# - name: "unzip the {{component}} application"
+#   ansible.builtin.unarchive:
+#     src: "/tmp/{{component}}.zip"
+#     dest: /app
+#     remote_src: yes 
+#   tags:
+#   - deployment       
 
-- name: install dependencies
-  ansible.builtin.command: npm install
-  args:
-    chdir: /app 
-  tags:
-  - deployment   
+# - name: install dependencies
+#   ansible.builtin.command: npm install
+#   args:
+#     chdir: /app 
+#   tags:
+#   - deployment   
 
 
-- name: "restart the {{component}}"  
-  ansible.builtin.service:
-    name: "{{component}}"
-    state: restarted
-    enabled: true 
-  tags:
-  - deployment     
+# - name: "restart the {{component}}"  
+#   ansible.builtin.service:
+#     name: "{{component}}"
+#     state: restarted
+#     enabled: true 
+#   tags:
+#   - deployment     
       
