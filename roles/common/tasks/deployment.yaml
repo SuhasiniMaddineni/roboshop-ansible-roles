@@ -7,7 +7,7 @@
 
 - name: remove old code
   ansible.builtin.file:
-    path: "/app/*"
+    path: /app
     state: absent 
   tags:
   - deployment     
