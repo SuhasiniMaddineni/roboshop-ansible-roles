@@ -10,7 +10,14 @@
     path: /app
     state: absent 
   tags:
-  - deployment     
+  - deployment 
+
+- name: create new app dir
+  ansible.builtin.file:
+    path: /app
+    state: present
+  tags:
+  - deployment       
 
 # - name: "downloading {{component}} application"
 #   ansible.builtin.get_url:
