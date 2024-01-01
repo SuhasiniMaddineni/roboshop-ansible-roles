@@ -3,3 +3,8 @@ REDIS_HOST: redis.daws91.online
 CATALOGUE_HOST: catalogue.daws91.online
 USER_HOST: user.daws91.online
 CART_HOST: cart.daws91.online
+SHIPPING_HOST: shipping.daws91.online
+PAYMENT_HOST: payment.daws91.online
+MYSQL_HOST: mysql.daws91.online
+RABBITMQ_HOST: rabbitmq.daws91.online
+DISPATCH_HOST: dispatch.daws91.online
